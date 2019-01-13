@@ -1,0 +1,481 @@
+.row {
+    max-width:100%;
+    margin: 0 auto;
+
+    &:not(:last-child) {
+        margin-bottom: $gutter-vertical;
+
+        @include respond(tport) {
+            
+        }
+    }
+    
+
+    @include clearfix;
+
+    [class^="col-"] {
+        float: left;
+        background-color: orangered;
+        color: white;
+        
+
+        &:not(:last-child) {
+            margin-right: $gutter-horizontal;
+
+            
+        }
+
+        
+    }
+
+
+    .col-1-of-2 {
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+        
+    }
+
+    .col-1-of-3 {
+        width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+    }
+
+    .col-2-of-3 {
+        width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+    }
+
+    .col-1-of-4 {
+
+        width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+    }
+
+    .col-2-of-4 {
+        width: calc(2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
+    }
+
+    .col-3-of-4 {
+        width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal});
+    }
+
+
+    ///automatic breaking at breakpoints //
+
+    .half-at-breakpoint
+    {
+        float: left;
+        background-color: green;
+        color: white;
+
+        &:not(:last-child) {
+            margin-right: $gutter-horizontal;           
+        }
+        width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+
+        
+        @include respond(tport)
+         {
+                    &:nth-child(1),&:nth-child(2){
+                    margin-bottom: $gutter-r-vertical;
+                    }
+
+                    &:nth-child(2){
+                        margin: 0;
+                    }
+                width: calc((100% - #{$gutter-horizontal}) / 2);
+
+
+        }
+        
+
+        @include respond(phone)
+         {
+                    width: 100%;
+                    
+                    &:nth-child(2),&:nth-child(3),&:nth-child(4){
+                        margin-bottom: $gutter-r-vertical;
+                    
+            
+                    }
+   
+               
+           }
+
+    }
+
+
+    /////////auto Responsive Design starts from here so be patience and let it flow with the tides  yeah?!
+
+
+
+     ///////small screen 12 columns like bootstraps///
+
+     //break point small!!
+    [class*=col-sm-]{
+
+
+    
+
+        &:not(:last-child) {
+            margin-right: $gutter-r-horizontal;
+
+            
+        }
+
+       
+        color: yellow;
+        background-color: red;
+
+    }
+    .col-sm-6{
+        @include respond(phone){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc((100% - #{$gutter-r-horizontal}) / 2);
+
+    }
+
+    .col-sm-4{
+        @include respond(phone){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width:  calc((100% - 2*#{$gutter-r-horizontal}) / 3);
+    }
+
+    .col-sm-3{
+        @include respond(phone){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc((100% - 3*#{$gutter-r-horizontal})/4);
+    }
+    .col-sm-2{
+        @include respond(phone){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc((100% - 5*#{$gutter-r-horizontal})/6);
+        
+    }
+
+    .col-sm-1{
+        @include respond(phone){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+       width: calc((100% - 11*#{$gutter-r-horizontal})/12);
+    }
+    .col-sm-11{
+        @include respond(phone){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+      width: calc(11 * ((100% - 11 * #{$gutter-r-horizontal}) / 12) + 10 * #{$gutter-r-horizontal});
+  }
+
+    .col-sm-10{
+        @include respond(phone){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc(10 * calc((100% - 11*#{$gutter-r-horizontal})/12) + 9 * #{$gutter-r-horizontal} );
+    }
+    .col-sm-9{
+        @include respond(phone){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc(9 * calc((100% - 11*#{$gutter-r-horizontal})/12) + 8 * #{$gutter-r-horizontal} );
+    }
+    .col-sm-8{
+        @include respond(phone){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc(8 * calc((100% - 11*#{$gutter-r-horizontal})/12) + 7 * #{$gutter-r-horizontal} );
+    }
+    .col-sm-7{
+        @include respond(phone){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc(7 * calc((100% - 11*#{$gutter-r-horizontal})/12) + 6 * #{$gutter-r-horizontal} );
+    }
+    .col-sm-5{
+        @include respond(phone){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc(5 * calc((100% - 11*#{$gutter-r-horizontal})/12) + 4 * #{$gutter-r-horizontal} );
+    }
+
+    [class*=col-md-]{
+
+
+    
+
+        &:not(:last-child) {
+            margin-right: $gutter-r-horizontal;
+
+            
+        }
+
+       
+        color: red;
+        background-color: yellow;
+
+    }
+
+    .col-md-6{
+        @include respond(tport){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc((100% - #{$gutter-r-horizontal}) / 2);
+
+    }
+
+    .col-md-4{
+        @include respond(tport){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width:  calc((100% - 2*#{$gutter-r-horizontal}) / 3);
+    }
+
+    .col-md-3{
+        @include respond(tport){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc((100% - 3*#{$gutter-r-horizontal})/4);
+    }
+    .col-md-2{
+        @include respond(tport){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc((100% - 5*#{$gutter-r-horizontal})/6);
+        
+    }
+
+    .col-md-1{
+        @include respond(tport){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+       width: calc((100% - 11*#{$gutter-r-horizontal})/12);
+    }
+    .col-md-11{
+        @include respond(tport){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+      width: calc(11 * ((100% - 11 * #{$gutter-r-horizontal}) / 12) + 10 * #{$gutter-r-horizontal});
+  }
+
+    .col-md-10{
+        @include respond(tport){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc(10 * calc((100% - 11*#{$gutter-r-horizontal})/12) + 9 * #{$gutter-r-horizontal} );
+    }
+    .col-md-9{
+        @include respond(tport){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc(9 * calc((100% - 11*#{$gutter-r-horizontal})/12) + 8 * #{$gutter-r-horizontal} );
+    }
+    .col-md-8{
+        @include respond(tport){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc(8 * calc((100% - 11*#{$gutter-r-horizontal})/12) + 7 * #{$gutter-r-horizontal} );
+    }
+    .col-md-7{
+        @include respond(tport){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc(7 * calc((100% - 11*#{$gutter-r-horizontal})/12) + 6 * #{$gutter-r-horizontal} );
+    }
+    .col-md-5{
+        @include respond(tport){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc(5 * calc((100% - 11*#{$gutter-r-horizontal})/12) + 4 * #{$gutter-r-horizontal} );
+    }
+
+    [class*=col-lg-]{
+
+
+    
+
+        &:not(:last-child) {
+            margin-right: $gutter-r-horizontal;
+
+            
+        }
+
+       
+        color: white;
+        background-color:lawngreen;
+
+    }
+
+
+    .col-lg-6{
+        @include respond(tland){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc((100% - #{$gutter-r-horizontal}) / 2);
+
+    }
+
+    .col-lg-4{
+        @include respond(tland){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width:  calc((100% - 2*#{$gutter-r-horizontal}) / 3);
+    }
+
+    .col-lg-3{
+        @include respond(tland){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc((100% - 3*#{$gutter-r-horizontal})/4);
+    }
+    .col-lg-2{
+        @include respond(tland){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc((100% - 5*#{$gutter-r-horizontal})/6);
+        
+    }
+
+    .col-lg-1{
+        @include respond(tland){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+       width: calc((100% - 11*#{$gutter-r-horizontal})/12);
+    }
+    .col-lg-11{
+        @include respond(tland){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+      width: calc(11 * ((100% - 11 * #{$gutter-r-horizontal}) / 12) + 10 * #{$gutter-r-horizontal});
+  }
+
+    .col-lg-10{
+        @include respond(tland){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc(10 * calc((100% - 11*#{$gutter-r-horizontal})/12) + 9 * #{$gutter-r-horizontal} );
+    }
+    .col-lg-9{
+        @include respond(tland){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc(9 * calc((100% - 11*#{$gutter-r-horizontal})/12) + 8 * #{$gutter-r-horizontal} );
+    }
+    .col-lg-8{
+        @include respond(tland){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc(8 * calc((100% - 11*#{$gutter-r-horizontal})/12) + 7 * #{$gutter-r-horizontal} );
+    }
+    .col-lg-7{
+        @include respond(tland){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc(7 * calc((100% - 11*#{$gutter-r-horizontal})/12) + 6 * #{$gutter-r-horizontal} );
+    }
+    .col-lg-5{
+        @include respond(tland){
+            width: 100%;
+
+            margin-right: 0;
+            margin-bottom: $gutter-r-vertical;
+        }
+        width: calc(5 * calc((100% - 11*#{$gutter-r-horizontal})/12) + 4 * #{$gutter-r-horizontal} );
+    }
+
+
+}
