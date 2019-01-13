@@ -1,0 +1,403 @@
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+*, *::after, *::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0; }
+
+html {
+  font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+
+body {
+  box-sizing: border-box;
+  font-size: 2rem; }
+
+/**
+ * Basic typography style for copy text
+ */
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7; }
+
+.heading-primary {
+  font-size: 5rem;
+  color: olivedrab; }
+
+.paragraph {
+  font-size: 2rem;
+  color: orange; }
+
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: table; }
+
+/**
+ * Main content containers
+ * 1. Make the container full-width with a maximum width
+ * 2. Center it in the viewport
+ * 3. Leave some space on the edges, especially valuable on small screens
+ */
+.container {
+  max-width: 114rem !important;
+  margin: 0 auto;
+  padding-left: 2rem;
+  /* 3 */
+  padding-right: 2rem;
+  /* 3 */
+  width: 100%;
+  /* 1 */ }
+
+.center-text {
+  text-align: center !important; }
+
+.mb-5 {
+  margin-bottom: 32rem !important; }
+
+.mb-4 {
+  margin-bottom: 16rem !important; }
+
+.mb-3 {
+  margin-bottom: 8rem !important; }
+
+.mb-2 {
+  margin-bottom: 4rem !important; }
+
+.mb-1 {
+  margin-bottom: 2rem !important; }
+
+.mt-5 {
+  margin-top: 32rem !important; }
+
+.mt-4 {
+  margin-top: 16rem !important; }
+
+.mt-3 {
+  margin-top: 8rem !important; }
+
+.mt-2 {
+  margin-top: 4rem !important; }
+
+.mt-1 {
+  margin-top: 2rem !important; }
+
+.row {
+  max-width: 100%;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left;
+    background-color: orangered;
+    color: white; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * 6rem) / 3) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * 6rem) / 4) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
+  .row .half-at-breakpoint {
+    float: left;
+    background-color: green;
+    color: white;
+    width: calc((100% - 3 * 6rem) / 4); }
+    .row .half-at-breakpoint:not(:last-child) {
+      margin-right: 6rem; }
+    @media only screen and (max-width: 56.25em) {
+      .row .half-at-breakpoint {
+        width: calc((100% - 6rem) / 2); }
+        .row .half-at-breakpoint:nth-child(1), .row .half-at-breakpoint:nth-child(2) {
+          margin-bottom: 3rem; }
+        .row .half-at-breakpoint:nth-child(2) {
+          margin: 0; } }
+    @media only screen and (max-width: 37.5em) {
+      .row .half-at-breakpoint {
+        width: 100%; }
+        .row .half-at-breakpoint:nth-child(2), .row .half-at-breakpoint:nth-child(3), .row .half-at-breakpoint:nth-child(4) {
+          margin-bottom: 3rem; } }
+  .row [class*=col-sm-] {
+    color: yellow;
+    background-color: red; }
+    .row [class*=col-sm-]:not(:last-child) {
+      margin-right: 2rem; }
+  .row .col-sm-6 {
+    width: calc((100% - 2rem) / 2); }
+    @media only screen and (max-width: 37.5em) {
+      .row .col-sm-6 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-sm-4 {
+    width: calc((100% - 2*2rem) / 3); }
+    @media only screen and (max-width: 37.5em) {
+      .row .col-sm-4 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-sm-3 {
+    width: calc((100% - 3*2rem)/4); }
+    @media only screen and (max-width: 37.5em) {
+      .row .col-sm-3 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-sm-2 {
+    width: calc((100% - 5*2rem)/6); }
+    @media only screen and (max-width: 37.5em) {
+      .row .col-sm-2 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-sm-1 {
+    width: calc((100% - 11*2rem)/12); }
+    @media only screen and (max-width: 37.5em) {
+      .row .col-sm-1 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-sm-11 {
+    width: calc(11 * ((100% - 11 * 2rem) / 12) + 10 * 2rem); }
+    @media only screen and (max-width: 37.5em) {
+      .row .col-sm-11 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-sm-10 {
+    width: calc(10 * calc((100% - 11*2rem)/12) + 9 * 2rem); }
+    @media only screen and (max-width: 37.5em) {
+      .row .col-sm-10 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-sm-9 {
+    width: calc(9 * calc((100% - 11*2rem)/12) + 8 * 2rem); }
+    @media only screen and (max-width: 37.5em) {
+      .row .col-sm-9 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-sm-8 {
+    width: calc(8 * calc((100% - 11*2rem)/12) + 7 * 2rem); }
+    @media only screen and (max-width: 37.5em) {
+      .row .col-sm-8 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-sm-7 {
+    width: calc(7 * calc((100% - 11*2rem)/12) + 6 * 2rem); }
+    @media only screen and (max-width: 37.5em) {
+      .row .col-sm-7 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-sm-5 {
+    width: calc(5 * calc((100% - 11*2rem)/12) + 4 * 2rem); }
+    @media only screen and (max-width: 37.5em) {
+      .row .col-sm-5 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row [class*=col-md-] {
+    color: red;
+    background-color: yellow; }
+    .row [class*=col-md-]:not(:last-child) {
+      margin-right: 2rem; }
+  .row .col-md-6 {
+    width: calc((100% - 2rem) / 2); }
+    @media only screen and (max-width: 56.25em) {
+      .row .col-md-6 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-md-4 {
+    width: calc((100% - 2*2rem) / 3); }
+    @media only screen and (max-width: 56.25em) {
+      .row .col-md-4 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-md-3 {
+    width: calc((100% - 3*2rem)/4); }
+    @media only screen and (max-width: 56.25em) {
+      .row .col-md-3 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-md-2 {
+    width: calc((100% - 5*2rem)/6); }
+    @media only screen and (max-width: 56.25em) {
+      .row .col-md-2 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-md-1 {
+    width: calc((100% - 11*2rem)/12); }
+    @media only screen and (max-width: 56.25em) {
+      .row .col-md-1 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-md-11 {
+    width: calc(11 * ((100% - 11 * 2rem) / 12) + 10 * 2rem); }
+    @media only screen and (max-width: 56.25em) {
+      .row .col-md-11 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-md-10 {
+    width: calc(10 * calc((100% - 11*2rem)/12) + 9 * 2rem); }
+    @media only screen and (max-width: 56.25em) {
+      .row .col-md-10 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-md-9 {
+    width: calc(9 * calc((100% - 11*2rem)/12) + 8 * 2rem); }
+    @media only screen and (max-width: 56.25em) {
+      .row .col-md-9 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-md-8 {
+    width: calc(8 * calc((100% - 11*2rem)/12) + 7 * 2rem); }
+    @media only screen and (max-width: 56.25em) {
+      .row .col-md-8 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-md-7 {
+    width: calc(7 * calc((100% - 11*2rem)/12) + 6 * 2rem); }
+    @media only screen and (max-width: 56.25em) {
+      .row .col-md-7 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-md-5 {
+    width: calc(5 * calc((100% - 11*2rem)/12) + 4 * 2rem); }
+    @media only screen and (max-width: 56.25em) {
+      .row .col-md-5 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row [class*=col-lg-] {
+    color: white;
+    background-color: lawngreen; }
+    .row [class*=col-lg-]:not(:last-child) {
+      margin-right: 2rem; }
+  .row .col-lg-6 {
+    width: calc((100% - 2rem) / 2); }
+    @media only screen and (max-width: 75em) {
+      .row .col-lg-6 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-lg-4 {
+    width: calc((100% - 2*2rem) / 3); }
+    @media only screen and (max-width: 75em) {
+      .row .col-lg-4 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-lg-3 {
+    width: calc((100% - 3*2rem)/4); }
+    @media only screen and (max-width: 75em) {
+      .row .col-lg-3 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-lg-2 {
+    width: calc((100% - 5*2rem)/6); }
+    @media only screen and (max-width: 75em) {
+      .row .col-lg-2 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-lg-1 {
+    width: calc((100% - 11*2rem)/12); }
+    @media only screen and (max-width: 75em) {
+      .row .col-lg-1 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-lg-11 {
+    width: calc(11 * ((100% - 11 * 2rem) / 12) + 10 * 2rem); }
+    @media only screen and (max-width: 75em) {
+      .row .col-lg-11 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-lg-10 {
+    width: calc(10 * calc((100% - 11*2rem)/12) + 9 * 2rem); }
+    @media only screen and (max-width: 75em) {
+      .row .col-lg-10 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-lg-9 {
+    width: calc(9 * calc((100% - 11*2rem)/12) + 8 * 2rem); }
+    @media only screen and (max-width: 75em) {
+      .row .col-lg-9 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-lg-8 {
+    width: calc(8 * calc((100% - 11*2rem)/12) + 7 * 2rem); }
+    @media only screen and (max-width: 75em) {
+      .row .col-lg-8 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-lg-7 {
+    width: calc(7 * calc((100% - 11*2rem)/12) + 6 * 2rem); }
+    @media only screen and (max-width: 75em) {
+      .row .col-lg-7 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
+  .row .col-lg-5 {
+    width: calc(5 * calc((100% - 11*2rem)/12) + 4 * 2rem); }
+    @media only screen and (max-width: 75em) {
+      .row .col-lg-5 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem; } }
